@@ -2,17 +2,22 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    video.load("CHESTER_P_FREESTYLE.mp4"); //test video
+    video.setLoopState(OF_LOOP_NORMAL);
+    video.play();
+    
+    videoEcho.setup(0.3f, 0.9f, 10); //300 ms delay
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    video.update();
+    videoEcho.update(video);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+    videoEcho.apply(video, 0,0, ofGetWidth(), ofGetHeight());
 }
 
 //--------------------------------------------------------------
@@ -30,52 +35,3 @@ void ofApp::keyReleased(int key){
 
 }
 
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseScrolled(int x, int y, float scrollX, float scrollY){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
