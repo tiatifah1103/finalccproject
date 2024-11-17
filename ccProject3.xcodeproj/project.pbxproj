@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5987B25C2CE7C6CE00230B4B /* VideoEcho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5987B25A2CE7C6CE00230B4B /* VideoEcho.cpp */; };
+		59B169B22CE960C900CAC4FC /* MotionBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59B169B02CE960C900CAC4FC /* MotionBlur.cpp */; };
+		59B169B52CE96BBB00CAC4FC /* StepPrintEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59B169B32CE96BBB00CAC4FC /* StepPrintEffect.cpp */; };
+		59B169B82CE989DA00CAC4FC /* GlitchEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59B169B62CE989DA00CAC4FC /* GlitchEffect.cpp */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
 /* End PBXBuildFile section */
@@ -38,6 +41,12 @@
 		191EF70929D778A400F35F26 /* openFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = openFrameworks; path = ../../../libs/openFrameworks; sourceTree = SOURCE_ROOT; };
 		5987B25A2CE7C6CE00230B4B /* VideoEcho.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VideoEcho.cpp; sourceTree = "<group>"; };
 		5987B25B2CE7C6CE00230B4B /* VideoEcho.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VideoEcho.hpp; sourceTree = "<group>"; };
+		59B169B02CE960C900CAC4FC /* MotionBlur.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MotionBlur.cpp; sourceTree = "<group>"; };
+		59B169B12CE960C900CAC4FC /* MotionBlur.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MotionBlur.hpp; sourceTree = "<group>"; };
+		59B169B32CE96BBB00CAC4FC /* StepPrintEffect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StepPrintEffect.cpp; sourceTree = "<group>"; };
+		59B169B42CE96BBB00CAC4FC /* StepPrintEffect.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StepPrintEffect.hpp; sourceTree = "<group>"; };
+		59B169B62CE989DA00CAC4FC /* GlitchEffect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlitchEffect.cpp; sourceTree = "<group>"; };
+		59B169B72CE989DA00CAC4FC /* GlitchEffect.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GlitchEffect.hpp; sourceTree = "<group>"; };
 		E4B69B5B0A3A1756003C02F2 /* ccProject3Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ccProject3Debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
@@ -83,6 +92,12 @@
 			children = (
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				59B169B02CE960C900CAC4FC /* MotionBlur.cpp */,
+				59B169B32CE96BBB00CAC4FC /* StepPrintEffect.cpp */,
+				59B169B42CE96BBB00CAC4FC /* StepPrintEffect.hpp */,
+				59B169B12CE960C900CAC4FC /* MotionBlur.hpp */,
+				59B169B62CE989DA00CAC4FC /* GlitchEffect.cpp */,
+				59B169B72CE989DA00CAC4FC /* GlitchEffect.hpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				5987B25A2CE7C6CE00230B4B /* VideoEcho.cpp */,
 				5987B25B2CE7C6CE00230B4B /* VideoEcho.hpp */,
@@ -181,8 +196,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59B169B52CE96BBB00CAC4FC /* StepPrintEffect.cpp in Sources */,
+				59B169B82CE989DA00CAC4FC /* GlitchEffect.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				59B169B22CE960C900CAC4FC /* MotionBlur.cpp in Sources */,
 				5987B25C2CE7C6CE00230B4B /* VideoEcho.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

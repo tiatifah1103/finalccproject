@@ -2,6 +2,9 @@
 
 #include "ofMain.h"
 #include "VideoEcho.hpp"
+#include "MotionBlur.hpp"
+#include "StepPrintEffect.hpp"
+#include "GlitchEffect.hpp"
 
 class ofApp : public ofBaseApp{
 
@@ -17,6 +20,9 @@ class ofApp : public ofBaseApp{
     
     ofVideoPlayer video;
     VideoEcho videoEcho;
+    MotionBlur motionBlur;
+    StepPrinting stepPrinting;
+    GlitchEffect glitchEffect;
 
     //test commit
     //test commit 2
