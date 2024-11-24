@@ -6,20 +6,23 @@
 //
 
 #pragma once
-#include "ofMain.h"
 
+#include "ofMain.h"
+#include "ofVideoPlayer.h"
 
 class MotionBlur {
 public:
+    MotionBlur();  // Constructor to initialize the effect
     
-    MotionBlur();
-    
-    void setup(float _blendFactor);
+    void setup(float _blendFactor, float _stretchAmount);
     void update(ofVideoPlayer &video);
     void apply(ofVideoPlayer &video, float x, float y, float width, float height);
+    float colorDistance(const ofColor &color1, const ofColor &color2);
     void clear();
     
 private:
-    ofFbo accumulationBuffer; // Frame buffer for storing accumulated frames
-    float blendFactor;  // Controls the smoothness of the blur
+    float blendFactor;
+    float stretchAmount; 
+    ofPixels previousFramePixels;
+    ofFbo accumulationBuffer;
 };
