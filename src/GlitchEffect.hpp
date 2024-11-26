@@ -24,4 +24,8 @@ private:
     int frameCounter;
     int glitchStrength;
     float glitchProbability = 0.1f;
+    
+    int stutterCount; //current stutter count
+    int maxStutterCount; //max times it can flicker
+    bool isGlitching; // if glitch is active
 };

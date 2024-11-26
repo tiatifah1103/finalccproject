@@ -1,9 +1,9 @@
 #include "GlitchEffect.hpp"
 
 GlitchEffect::GlitchEffect() {
-    glitchInterval = 20;  // Trigger glitches every 20 frames
+    glitchInterval = 20;  // triggers the glitches every 20 frames
     frameCounter = 0;
-    glitchStrength = 50;  // increased strength of the glitch
+    glitchStrength = 50;  // increases strength of the glitch
     glitchProbability = 0.9f;  //probability of glitching
 }
 
@@ -32,22 +32,57 @@ void GlitchEffect::apply(ofVideoPlayer &video, float x, float y, float width, fl
 }
 
 void GlitchEffect::applyGlitch(ofVideoPlayer &video, float x, float y, float width, float height) {
-    //random offset to create the glitch effect
-    int numGlitches = 2;  // number of glitch strips
+    int numGlitches = 2;  // Number of glitch strips
+
     for (int i = 0; i < numGlitches; i++) {
-        // random vertical position and displacement amount
-        int offsetY = ofRandom(0, video.getHeight());
+        // Random vertical position within the video
+        int offsetY = ofRandom(0, video.getHeight() - 1);  // Ensure offset is within the bounds
+
+        int offsetX = ofRandom(0, video.getHeight() - 1);  // Ensure offset is within the bounds
+        // Random size for the glitch rectangle, ranging from a small section to the entire video
+        float glitchWidth = ofRandom(width * 0.1, width);  // Random width between 10% and 100% of the video width
+        float glitchHeight = ofRandom(height * 0.1, height);  // Random height between 10% and 100% of the video height
+
+        // Random horizontal displacement amount
         int displacement = ofRandom(-glitchStrength, glitchStrength);
-        
-        // creates a rectangle from the video to displace and draw it
+
+        // Create a rectangle from the video to displace and draw it
         ofPixels pixels = video.getPixels();
         ofImage glitchImage;
         glitchImage.setFromPixels(pixels);
         
-        // Simulate a glitch by shifting part of the image horizontally
+        
+        //colour channel effect
+        bool applyColorEffect = (ofRandom(1.0f) > 0.5f);  // 50% chance of applying the effect
+
+              if (applyColorEffect) {
+                  // modifies the colour channels of the pixels in the glitchImage
+                  for (int y = 0; y < glitchImage.getHeight(); y++) {
+                      for (int x = 0; x < glitchImage.getWidth(); x++) {
+                          ofColor color = glitchImage.getColor(x, y);
+
+                          //channel mix
+                          color.r = ofClamp(color.g, 0, 255);  // Swap red with green
+                          color.g = ofClamp(color.b, 0, 255);  // Swap green with blue
+                          color.b = ofClamp(color.r, 0, 255);  // Swap blue with red
+
+                          glitchImage.setColor(x, y, color);
+                      }
+                  }
+                  glitchImage.update();  // Update the image with the modified colours
+              }
+
+        // Bind the texture for drawing
         glitchImage.getTexture().bind();
         ofSetColor(255, 255, 255, 255);
-        glitchImage.getTexture().drawSubsection(x, y + offsetY, width, height, displacement, 0);  // horizontal displacement
+
+        // Draw the original section of the video in its original position
+        glitchImage.getTexture().drawSubsection(x, y + offsetY, glitchWidth, glitchHeight, x, offsetY);
+
+        // Draw the displaced version on top to create the glitch effect
+        glitchImage.getTexture().drawSubsection(x + displacement, y + offsetY, glitchWidth, glitchHeight, x, offsetY);
+        
+        // Unbind the texture
         glitchImage.getTexture().unbind();
     }
 }
