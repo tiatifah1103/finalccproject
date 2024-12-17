@@ -19,13 +19,20 @@ public:
     
 
 private:
-    
-    int glitchInterval;
-    int frameCounter;
-    int glitchStrength;
-    float glitchProbability = 0.1f;
-    
-    int stutterCount; //current stutter count
-    int maxStutterCount; //max times it can flicker
-    bool isGlitching; // if glitch is active
+    struct Glitch {
+            float offsetX, offsetY;
+            float width, height;
+            float displacement;
+        };
+
+        int glitchInterval;
+        int frameCounter;
+        int glitchStrength;
+        float glitchProbability;
+
+        bool isFrozen;                 // Whether glitches are frozen
+        int freezeDuration;            // How long to hold the frozen state
+        int freezeTimer;               // Timer for managing freeze state
+
+        std::vector<Glitch> frozenGlitches; // Store frozen glitches
 };
